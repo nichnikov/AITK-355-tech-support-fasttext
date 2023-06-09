@@ -2,7 +2,6 @@
 классификатор KNeighborsClassifier в /home/an/Data/Yandex.Disk/dev/03-jira-tasks/aitk115-support-questions
 """
 from src.data_types import Parameters
-from src.storage import ElasticClient
 from src.texts_processing import TextsTokenizer
 from src.config import logger
 import numpy as np
@@ -31,9 +30,11 @@ class FastAnswerClassifier:
                 cos_sims_arr = self.ft_model.cosine_similarities(q_vc, self.index)
                 cos_sims = cos_sims_arr.tolist()
                 best_score = max(cos_sims)
-                if best_score and best_score > score:
+                if best_score and best_score >= score:
                     logger.info("search completed successfully with result: {}".format(str(self.answers[cos_sims.index(best_score)])))
-                    return self.answers[cos_sims.index(best_score)]
+                    d = self.answers[cos_sims.index(best_score)]
+                    d["score"] = best_score
+                    return d
                 else:
                     logger.info("not found answer for input text {}".format(str(text)))
         except Exception:
