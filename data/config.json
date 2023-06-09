@@ -1,0 +1,6 @@
+{
+  "stopwords_files": ["stopwords.csv", "greetings.csv"],
+  "clusters_index": "clusters",
+  "answers_index": "answers",
+  "score": 0.8
+}
