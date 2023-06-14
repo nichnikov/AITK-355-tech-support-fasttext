@@ -21,4 +21,4 @@ for query in queries:
     results.append(res_dict)
 
 results_df = pd.DataFrame(results)
-results_df.to_csv(os.path.join("data", "test_results.csv"), sep="\t", index=False)
+results_df.to_csv(os.path.join("data", "test_results202Mb_model.csv"), sep="\t", index=False)

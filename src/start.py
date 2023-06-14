@@ -4,16 +4,16 @@ import pandas as pd
 import numpy as np
 from src.texts_processing import TextsTokenizer
 from src.config import (stopwords,
-                    parameters,
-                    logger,
-                    PROJECT_ROOT_DIR)
+                        parameters,
+                        logger,
+                        PROJECT_ROOT_DIR)
 from src.classifiers import FastAnswerClassifier
 
-
-
-ft_model = compress_fasttext.models.CompressedFastTextKeyedVectors.load(os.path.join(PROJECT_ROOT_DIR, 
-                                                                          "models", 
-                                                                          "geowac_tokens_sg_300_5_2020-100K-20K-100.bin"))
+ft_model = compress_fasttext.models.CompressedFastTextKeyedVectors.load(os.path.join(PROJECT_ROOT_DIR,
+                                                                                     "models",
+                                                                                     "geowac_tokens_sg_300_5_2020"
+                                                                                     "-400K-100K-300.bin"))
+# "geowac_tokens_sg_300_5_2020-100K-20K-100.bin"))
 
 
 tokenizer = TextsTokenizer()
